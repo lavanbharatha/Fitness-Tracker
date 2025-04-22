@@ -1,0 +1,78 @@
+<div class="container-fluid mt-4">
+    <!-- Page Title -->
+    <div class="row mb-3">
+      <div class="col-12 text-center">
+        <h1 class="workout-header">Workout</h1>
+      </div>
+    </div>
+  
+    <div class="row">
+      <!-- Post New Workout Form -->
+      <div class="col-lg-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-secondary fw-semibold">
+            Post New Workout
+          </div>
+          <div class="card-body">
+            <form [formGroup]="workoutForm" (ngSubmit)="submitForm()">
+              <div class="mb-4 mt-3">
+                <input type="text" class="form-control" formControlName="caloriesBurned"
+                  placeholder="Enter the calories you burned" />
+                <div class="form-error" *ngIf="workoutForm.get('caloriesBurned')?.invalid && workoutForm.get('caloriesBurned')?.touched">
+                  Please input the calories!
+                </div>
+              </div>
+  
+              <div class="mb-4">
+                <input type="number" class="form-control" formControlName="duration"
+                  placeholder="Enter duration" />
+                <div class="form-error" *ngIf="workoutForm.get('duration')?.invalid && workoutForm.get('duration')?.touched">
+                  Please input the duration!
+                </div>
+              </div>
+  
+              <div class="mb-4">
+                <input type="date" class="form-control" formControlName="date" />
+                <div class="form-error" *ngIf="workoutForm.get('date')?.invalid && workoutForm.get('date')?.touched">
+                  Please input the date!
+                </div>
+              </div>
+  
+              <div class="mb-4">
+                <select class="form-select" formControlName="type">
+                  <option value="" disabled selected>Select the type</option>
+                  <option *ngFor="let type of listOfType" [value]="type">{{ type }}</option>
+                </select>
+              </div>
+  
+             <div class="text-center">
+                <button type="submit" class="btn btn-primary w-30" [disabled]="workoutForm.invalid">
+                    Post Workout
+                  </button>
+             </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Past Workouts -->
+      <div class="col-lg-6">
+        <div class="card shadow-sm">
+          <div class="card-header bg-success fw-semibold border-none">
+            Past Workouts
+          </div>
+          <div class="card-body">
+            <div class="p-2 border-bottom" *ngFor="let workout of workouts">
+              <p class="mb-1">
+                Calories Burned: <strong>{{ workout.caloriesBurned }}</strong> -
+                Duration: <strong>{{ workout.duration }}</strong> -
+                Date: <strong>{{ workout.date | date:'mediumDate' }}</strong> -
+                Type: <strong>{{ workout.type }}</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

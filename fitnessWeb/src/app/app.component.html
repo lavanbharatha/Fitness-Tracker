@@ -1,0 +1,56 @@
+<div class="d-flex" id="wrapper">
+  <!-- Sidebar -->
+  <div class="bg-dark sidebar text-white">
+    <div class="sidebar-header text-center py-4">
+      <img src="https://assets.codepen.io/1480814/av+1.png" class="avatar mb-2" alt="avatar" />
+      <div><strong>Lavan</strong></div>
+    </div>
+    <ul class="nav flex-column px-3">
+      <li class="nav-item mb-2">
+        <a
+          class="nav-link"
+          routerLink="/dashboard"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <i class="bi bi-speedometer2 me-2"></i> Dashboard
+        </a>
+      </li>
+      <li class="nav-item mb-2">
+        <a
+          class="nav-link"
+          routerLink="/workout"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <i class="bi bi-activity me-2"></i> Workout
+        </a>
+      </li>
+      <li class="nav-item mb-2">
+        <a
+          class="nav-link"
+          routerLink="/activity"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <i class="bi bi-graph-up-arrow me-2"></i> Activity
+        </a>
+      </li>
+      <li class="nav-item mb-2">
+        <a
+          class="nav-link"
+          routerLink="/goal"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <i class="bi bi-bullseye me-2"></i> Goal
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Page Content -->
+  <div class="flex-grow-1 p-4 content-area">
+    <router-outlet></router-outlet>
+  </div>
+</div>

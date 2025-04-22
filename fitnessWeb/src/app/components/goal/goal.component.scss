@@ -1,0 +1,43 @@
+.activity-header {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 10px;
+    background-color: aliceblue;
+    border-radius: 8px;
+  }
+  
+  .form-error {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 5px;
+  }
+  
+  .card {
+    background-color: #f0f8ff; /* aliceblue */
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+  
+  }
+  
+  .card-header {
+    font-size: 1.25rem;
+    font-weight: 600;
+    background-color: beige;
+  }
+  
+  .activity-entry {
+    background-color: #ffffff;
+    border-radius: 6px;
+  }
+  
+  @media (max-width: 768px) {
+    .activity-header {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  }
+  .form-control{
+    width: 80%;
+  }
+ 
+  

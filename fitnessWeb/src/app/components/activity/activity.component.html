@@ -1,0 +1,74 @@
+<div class="container-fluid mt-4">
+    <div class="row mb-3 text-center">
+      <h1 class="activity-header">Activity</h1>
+    </div>
+  
+    <div class="row">
+      <!-- Left: Post New Activity Form -->
+      <div class="col-lg-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-secondary text-dark">
+            Post New Activity
+          </div>
+          <div class="card-body">
+            <form [formGroup]="activityForm" (ngSubmit)="submitForm()">
+              <div class="mb-4 mt-3">
+                <input type="text" class="form-control" formControlName="caloriesBurned"
+                  placeholder="Enter the calories that you burned" />
+                <div class="form-error" *ngIf="activityForm.get('caloriesBurned')?.invalid && activityForm.get('caloriesBurned')?.touched">
+                  Please input the calories!
+                </div>
+              </div>
+  
+              <div class="mb-4">
+                <input type="number" class="form-control" formControlName="distance" placeholder="Enter distance" />
+                <div class="form-error" *ngIf="activityForm.get('distance')?.invalid && activityForm.get('distance')?.touched">
+                  Please input the distance!
+                </div>
+              </div>
+  
+              <div class="mb-4">
+                <input type="number" class="form-control" formControlName="steps" placeholder="Enter steps" />
+                <div class="form-error" *ngIf="activityForm.get('steps')?.invalid && activityForm.get('steps')?.touched">
+                  Please input the steps!
+                </div>
+              </div>
+  
+              <div class="mb-4">
+                <input type="date" class="form-control" formControlName="date" />
+                <div class="form-error" *ngIf="activityForm.get('date')?.invalid && activityForm.get('date')?.touched">
+                  Please input the date!
+                </div>
+              </div>
+  
+             <div class="text-center input">
+                <button class="btn btn-primary w-30" type="submit" [disabled]="activityForm.invalid">
+                    Post Activity
+                  </button>
+             </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Right: Past Activities -->
+      <div class="col-lg-6">
+        <div class="card shadow-sm">
+          <div class="card-header bg-success text-white">
+            Past Activities
+          </div>
+          <div class="card-body">
+            <div class="activity-entry p-2 border-bottom" *ngFor="let activity of activities">
+              <p class="mb-1">
+                <strong>Calories Burned:</strong> {{activity.caloriesBurned}} -
+                <strong>Distance:</strong> {{activity.distance}} KM -
+                <strong>Steps:</strong> {{activity.steps}} -
+                <strong>Date:</strong> {{activity.date | date}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

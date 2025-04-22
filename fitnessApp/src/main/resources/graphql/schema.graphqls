@@ -1,0 +1,34 @@
+type Query {
+    getGraphActivities: [Activity]
+    getActivityById(id: ID!): Activity
+    getGraphWorkouts: [Workout]
+    getWorkoutById(id: ID!): Workout
+    getGraphGoals: [Goal]
+    getGoalById(id: ID!): Goal
+}
+
+type Activity {
+    id: ID!
+    caloriesBurned: Int!
+    date: Date
+    distance: Float!
+    steps: Int!
+}
+
+type Workout {
+    id: ID!
+    type: String!
+    date: Date
+    duration: Int!
+    caloriesBurned: Int!
+}
+
+type Goal {
+    id: ID!
+    description: String!
+    startDate: Date
+    endDate: Date
+    achieved: Boolean!
+}
+
+scalar Date
